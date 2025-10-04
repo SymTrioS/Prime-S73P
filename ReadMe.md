@@ -6,9 +6,9 @@
 - a hardware-specific data processing unit based on programmable logic;  
 - a microcontroller-based analog and digital signal processing unit.
   
-###To facilitate the development and debugging of controller software, the board includes a microcontroller programmer and debugger, a dual-channel USB-to-UART converter,and an interface for configuring programmable logic.###
+### To facilitate the development and debugging of controller software, the board includes a microcontroller programmer and debugger, a dual-channel USB-to-UART converter,and an interface for configuring programmable logic.
   
-##Built-in programming, debugging, and monitoring functions are accessible via a USB Type-C connector.##  
+## Built-in programming, debugging, and monitoring functions are accessible via a USB Type-C connector.
 
 <h2 align="center">Functional diagram</h2>
 <p align="center">
