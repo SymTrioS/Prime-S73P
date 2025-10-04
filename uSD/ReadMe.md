@@ -30,7 +30,7 @@ mk@mpc:~/Prime-S73P/uSD$ sync
 
 mk@mpc:~/Prime-S73P/uSD$ sudo umount /dev/sdx1
 
-*Get https://disk.yandex.ru/d/VCLHKDqusnvv8A rootFS in uSD folder or use another build*
+*Get https://disk.yandex.ru/d/VCLHKDqusnvv8A/debian12.rootfsf.tar rootFS in uSD folder or use another build*
 
 *Write RootFS debian12:*
 
