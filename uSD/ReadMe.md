@@ -1,4 +1,4 @@
-<h2 align="center">Preparing a usD card:</h2>
+## Preparing a uSD card:
 
 Prime-S73P/uSD$ gparted
 
