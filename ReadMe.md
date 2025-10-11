@@ -29,10 +29,10 @@
 * 8640 LUT, 6480 Flip-Flop;
 * FLASH capacity of 608 Kbit;
 * the RAM capacity is 468 Kbit;
-* the amount of additional RAM on the 64 MB PSRAM chip (4Mx16 bit);
+* There is also additional RAM inside the chip: 64 MB PSRAM (4Mx16 bit);
 * HDMI, GPIO interfaces, as well as arbitrary user interfaces specified by the FPGA configuration are available on the board connectors;
-* The uSD connector of the memory card is connected to the chip, which can be connected via internal circuits to the F1C200S microprocessor.
-
+* The uSD connector of the memory card is connected to the chip, which can be connected via internal circuits to the F1C200S microprocessor;
+* External components connected to the chip: 32 Mbit FLASH memory W25Q32, two 12-bit ADCs ADC121 and an ESP-03 Wi-Fi module.
 
 **GD32F303CCT6 Microcontroller**
 * Arm® Cortex®-M4 architecture, 120 MHz;
