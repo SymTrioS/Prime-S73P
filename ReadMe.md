@@ -17,35 +17,34 @@
 <p align="center">
 <img src="https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/Prime-S73P_Func.jpg" width="100%"></p>
 
-<h3 align="center">Controller Components:</h3>
+<h2 align="center">Controller Components</h2>
 
 **F1C200S Microprocessor**
 * ARM9 architecture, 408 MHz, 64 MB RAM;
+* Support H.264 BP/MP/HP up to 1280x720@30fps decoding, support NTSC/PAL CVBS Input;
 * USB-A HOST, UART, SPI, I2C, GPIO interfaces are available on the connectors of the board;
-* connectors for connecting an LCD display and a camera are also located on the board.
+* Connectors for connecting an LCD display and a camera (up to 5Mega pixel) are also located on the board.
 
 
 **FPGA Gowin GW1NR-LV9QN88P**
 * 8640 LUT, 6480 Flip-Flop;
-* FLASH capacity of 608 Kbit;
-* the RAM capacity is 468 Kbit;
-* There is also additional RAM inside the chip: 64 MB PSRAM (4Mx16 bit);
+* FLASH capacity of 608 Kbit, RAM capacity is 468 Kbit;
+* There is also additional RAM inside the chip: 64 Mbit PSRAM (4Mx16 bit);
 * HDMI, GPIO interfaces, as well as arbitrary user interfaces specified by the FPGA configuration are available on the board connectors;
 * The uSD connector of the memory card is connected to the chip, which can be connected via internal circuits to the F1C200S microprocessor;
 * External components connected to the chip: 32 Mbit FLASH memory W25Q32, two 12-bit ADCs ADC121 and an ESP-03 Wi-Fi module.
 
+
 **GD32F303CCT6 Microcontroller**
 * Arm® Cortex®-M4 architecture, 120 MHz;
-* 256 KB FLASH memory;
-* 48 KB of SRAM;
-* 2x12-bit DAC/2x12-bit ADC;
-* 2x12-bit ADC;
+* 256 KB FLASH memory, 48 KB of SRAM;
 * Analog I/O and UART, SPI, I2C, CAN, and GPIO interfaces are available on the board connectors;
-* two external memory chips are connected to the microcontroller: SPI-FLASH W25Q64 (8 MB) and I2C-EEPROM M24C64(8 KB);
-* an external 16-bit 4-channel ADS1120 ADC and two 12-bit DAC7311 DACs are connected via the SPI interface;
+* 2x12-bit DAC/2x12-bit ADC + 3x12-bit ADC analog channels available;;
+* Two external memory chips are connected to the microcontroller: SPI-FLASH W25Q64 (8 MB) and I2C-EEPROM M24C64(8 KB);
+* An external 16-bit 4-channel ADS1120 ADC and two 12-bit DAC7311 DACs are connected via the SPI interface;
 * There is an SPI/GPIO connector on the board, which can be used to connect an SPI display.
 
-<h3 align="center">Getting started</h3>
+<h2 align="center">Getting started</h2>
 
 1. Connect the board (USB Type-C connector) with a cable to the computer.
 
@@ -61,7 +60,7 @@
 
 4. The FPGA configuration is set by a test case for the Gowin development environment: https://github.com/SymTrioS/GW1NR-LV9
 
-5. If necessary, you can use the already prepared files located in the 'Bin' directory: hex file for the firmware of the GD32F303 microcontroller and fs file for FPGA configuration.
+5. If necessary, you can use the already prepared files located in the 'Bin' directory: hex-file for the firmware of the GD32F303 microcontroller and fs-file for FPGA configuration.
 
 6. These files are already embedded in the microcontroller and FPGA, as they are used for testing.
 
