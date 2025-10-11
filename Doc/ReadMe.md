@@ -10,7 +10,7 @@
 
 <h2 align="center">Linux system build procedure</h2>
 
-**Package installation**
+**Package installation**  
 $ sudo apt install build-essential  
 $ sudo apt install bison flex swig git  
 $ sudo apt install openssl libssl-dev libelf-dev  
@@ -18,7 +18,7 @@ $ sudo apt install libudev-dev libpci-dev libiberty-dev
 $ sudo apt install libncurses5-dev gparted python3  
 $ sudo apt install dkms autoconf  
 
-**Installing cross-compiler**
+**Installing cross-compiler**  
 *get file https://disk.yandex.ru/d/VCLHKDqusnvv8A/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabi.tar.xz*  
 $ tar xvf gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabi.tar.xz  
 $ sudo mv gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabi /opt/  
@@ -26,7 +26,7 @@ $ export CC=/opt/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabi/bin/arm-linux
 *availability check*  
 $ ${CC}gcc -v  
 
-**Install Python for binman u-boot olders version**
+**Install Python for binman u-boot olders version**  
 $ wget https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tgz  
 *or get https://disk.yandex.ru/d/VCLHKDqusnvv8A/Python-2.7.18.tgz*  
 $ tar xzf Python-2.7.18.tgz  
@@ -36,12 +36,12 @@ $ sudo make altinstall
 $ sudo ln -s "/usr/local/bin/python2.7" "/usr/bin/python"  
 $ sudo ln -s "/usr/local/bin/python2.7" "/usr/bin/python2"  
 
-**Creating a working directory**
+**Creating a working directory**  
 $ mkdir Prime-S  
 $ cd Prime-S  
 Prime-S$ mkdir uSD  
 
-**U-BOOT**
+**U-BOOT**  
 Prime-S$ git clone https://github.com/SymTrioS/u-boot-s.git  
 Prime-S$ cd u-boot-s  
 Prime-S/u-boot-s$ make ARCH=arm CROSS_COMPILE=${CC} distclean  
@@ -52,7 +52,7 @@ Prime-S/u-boot-s$ make ARCH=arm CROSS_COMPILE=${CC} -j16
 Prime-S/u-boot-s$ cp u-boot-sunxi-with-spl.bin ../uSD/  
 Prime-S/u-boot-s$ cd ..  
 
-**KERNEL**
+**KERNEL**  
 Prime-S$ git clone https://github.com/SymTrioS/linux-5.2-fps.git  
 Prime-S$ cd linux-5.2-fps  
 Prime-S/linux-5.2-fps$ make ARCH=arm CROSS_COMPILE=${CC} distclean  
@@ -68,8 +68,7 @@ Prime-S/linux-5.2-fps$ cp arch/arm/boot/zImage ../uSD/
 Prime-S/linux-5.2-fps$ cp arch/arm/boot/dts/suniv-f1c200s-prime-s.dtb ../uSD/  
 Prime-S/linux-5.2-fps$ cd ..  
 
-**Preparing the uSD card**
-
+**Preparing the uSD card**  
 Prime-S$ cd uSD  
 *create text file boot.cmd*  
 Prime-S/uSD$ nano boot.cmd  
