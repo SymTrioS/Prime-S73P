@@ -1,6 +1,6 @@
 <h1 align="center">Prime-S73P</h1>
 <p align="center">
-<img src="https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/Prime-S73P_01.jpg" width="50%"></p>
+<img src="https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/Prime-S73P_01.jpg" width="60%"></p>
 <h3 align="center">The Prime controller integrates three computing units:</h3>
 
 - a user interface processor with a Linux OS and standard I/O devices;
@@ -57,12 +57,17 @@
 <p align="center">
 <img src="https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/Com67.png" width="100%"></p>
 
-3. The test program is available in two IDE versions: IAR https://github.com/SymTrioS/GD32F303CC_IAR and VSC https://github.com/SymTrioS/GD32F303CC_VSC
+3. The test program is available in two IDE versions:  
+   * IAR: https://github.com/SymTrioS/GD32F303CC_IAR  
+   * VSC: https://github.com/SymTrioS/GD32F303CC_VSC  
 
 <p align="center">
 <img src="https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/Prime-S73P_IAR_VSC.png" width="100%"></p>
 
 4. The FPGA configuration is set by a test case for the Gowin development environment: https://github.com/SymTrioS/GW1NR-LV9
+
+<p align="center">
+<img src="https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/Gowin.png" width="60%"></p>
 
 5. If necessary, you can use the already prepared files located in the 'Bin' directory: hex-file for the firmware of the GD32F303 microcontroller and fs-file for FPGA configuration.
 
