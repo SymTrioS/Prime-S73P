@@ -75,7 +75,7 @@
 
 7. When the board is running, you can observe the flashing of custom blue and red LEDs, as well as the green glow when the program accesses the FPGA registers - the readings of two external ADC121.
 
-LCD displays with a 40-pin flat cable can be connected to the board. These are typically 4.3, 5.0, or 7.0-inch displays with a resolution of 480x272 or 800x480 pixels.
+LCD displays with a 40-pin flat cable can be connected to the board. These are typically 4.3, 5.0, or 7.0-inch displays with a resolution of 480x272 or 800x480 pixels. The display can be equipped with a resistive touchscreen. The board does not have a dedicated connector for a capacitive touchscreen.
 
 <p align="center">
 <img src="https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/LCD_40pin.jpg" width="100%"></p>
@@ -85,5 +85,5 @@ For a resolution of 480x272, you need to edit the linux-5.2-fps/arch/arm/boot/dt
 Example of displays connected to the microcontroller GD32F303 via the SPI interface:
 
 <p align="center">
-<img src="https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/LCD_SPI.jpg" width="50%"></p>
+<img src="https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/LCD_SPI.png" width="50%"></p>
 
