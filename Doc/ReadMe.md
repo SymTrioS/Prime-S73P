@@ -106,7 +106,7 @@ Prime-S/uSD$ sync
 Prime-S/uSD$ sudo mkdir -p /mnt/usr/lib/modules  
 Prime-S/uSD$ sudo rm -rf /mnt/usr/lib/modules/  
 Prime-S/uSD$ cd ../linux-5.2-fps  
-Prime-S/uSD/linux-5.2-fps$ sudo cp -r out/lib /mnt/usr/  
-Prime-S/uSD/linux-5.2-fp$ sync  
-Prime-S/uSD/linux-5.2-fp$ sudo umount /dev/sdx2  
+Prime-S/linux-5.2-fps$ sudo cp -r out/lib /mnt/usr/  
+Prime-S/linux-5.2-fps$ sync  
+Prime-S/linux-5.2-fps$ sudo umount /dev/sdx2  
 
