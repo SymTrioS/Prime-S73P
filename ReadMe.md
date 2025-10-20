@@ -1,89 +1,263 @@
-<h1 align="center">Prime-S73P</h1>
+# Prime-S73P
+
+![Prime-S73P Board](https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/Prime-S73P_01.jpg)
+
+### A Heterogeneous Computing Platform with Three Integrated Processing Units
+
+---
+
+## Overview
+
+The Prime-S73P is a versatile development board that integrates three distinct computing architectures into a single platform:
+
+- **User Interface Processor** - ARM9-based Linux system for application development and I/O management
+- **Hardware Processing Unit** - FPGA for custom logic and hardware acceleration
+- **Microcontroller** - ARM Cortex-M4 for real-time analog and digital signal processing
+
+The board includes integrated development tools accessible via a single USB Type-C connection, including a microcontroller programmer/debugger (CMSIS-DAP), dual-channel USB-to-UART converter, and FPGA configuration interface.
+
+---
+
+## Table of Contents
+
+- [Architecture](#architecture)
+- [Hardware Specifications](#hardware-specifications)
+- [Getting Started](#getting-started)
+- [Display Configuration](#display-configuration)
+- [Development Resources](#development-resources)
+- [Factory Configuration](#factory-configuration)
+
+---
+
+## Architecture
+
+![Functional Diagram](https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/Prime-S73P_Func.jpg)
+
+### System Components
+
+#### **F1C200S Application Processor**
+- ARM9 architecture running at 408 MHz with 64 MB DDR RAM
+- Hardware H.264 video decoding (BP/MP/HP profiles) up to 1280×720 @ 30 fps
+- NTSC/PAL CVBS video input support
+- Peripheral interfaces: USB-A Host, UART, SPI, I²C, GPIO
+- Display support: LCD interface (up to 800×480 resolution)
+- Camera interface: up to 5 MP sensor
+- Operating system: Linux (Debian 12 supported)
+
+#### **Gowin GW1NR-LV9QN88P FPGA**
+- Logic resources: 8,640 LUTs, 6,480 flip-flops
+- On-chip memory: 468 Kbit RAM, 608 Kbit Flash
+- External PSRAM: 64 Mbit (4M × 16-bit)
+- External Flash: 32 Mbit W25Q32
+- Analog front-end: Two 12-bit ADC121 converters
+- Wireless connectivity: ESP-03 Wi-Fi module
+- Interfaces: HDMI output, GPIO, user-configurable I/O
+- Storage: microSD card slot (switchable between FPGA and F1C200S)
+- Development environment: Gowin IDE (`.fs` bitstream format)
+
+#### **GD32F303CCT6 Microcontroller**
+- ARM Cortex-M4 core at 120 MHz
+- Memory: 256 KB Flash, 48 KB SRAM
+- External storage: 8 MB SPI Flash (W25Q64), 8 KB I²C EEPROM (M24C64)
+- High-precision analog I/O: 16-bit 4-channel ADS1120 ADC, two 12-bit DAC7311 DACs
+- Integrated analog peripherals: 2× 12-bit DAC, 2× 12-bit ADC, 3× 12-bit ADC channels
+- Communication interfaces: UART, SPI, I²C, CAN, GPIO
+- Debug interface: CMSIS-DAP via USB Type-C
+- Display support: SPI/GPIO connector for external displays
+- Firmware format: Intel HEX (`.hex`)
+
+---
+
+## Hardware Specifications
+
+### F1C200S Microprocessor
+
+| Parameter | Specification |
+|-----------|---------------|
+| Architecture | ARM9 |
+| Clock Frequency | 408 MHz |
+| System Memory | 64 MB DDR |
+| Video Decoder | H.264 BP/MP/HP up to 1280×720 @ 30 fps |
+| Video Input | NTSC/PAL CVBS |
+| Host Interface | USB-A |
+| Serial Interfaces | UART, SPI, I²C |
+| General I/O | GPIO |
+| Display Support | LCD interface (up to 800×480 pixels) |
+| Camera Support | Up to 5 MP sensor |
+| Operating System | Linux (Debian 12) |
+
+### FPGA - Gowin GW1NR-LV9QN88P
+
+| Parameter | Specification |
+|-----------|---------------|
+| Logic Elements | 8,640 LUTs, 6,480 flip-flops |
+| Embedded Memory | 468 Kbit RAM, 608 Kbit Flash |
+| External Memory | 64 Mbit PSRAM (4M × 16-bit) |
+| External Flash | 32 Mbit W25Q32 |
+| Analog Inputs | Two 12-bit ADC121 converters |
+| Wireless Module | ESP-03 Wi-Fi |
+| Video Output | HDMI |
+| Storage | microSD card (switchable to F1C200S) |
+| Development Tool | Gowin IDE |
+| Bitstream Format | `.fs` |
+
+### GD32F303CCT6 Microcontroller
+
+| Parameter | Specification |
+|-----------|---------------|
+| Core | ARM Cortex-M4 |
+| Clock Frequency | 120 MHz |
+| Flash Memory | 256 KB |
+| SRAM | 48 KB |
+| External Flash | 8 MB W25Q64 (SPI) |
+| External EEPROM | 8 KB M24C64 (I²C) |
+| External ADC | 16-bit 4-channel ADS1120 (SPI) |
+| External DAC | Two 12-bit DAC7311 (SPI) |
+| Integrated DAC | 2× 12-bit channels |
+| Integrated ADC | 2× 12-bit + 3× 12-bit channels |
+| Communication | UART, SPI, I²C, CAN |
+| General I/O | GPIO, analog I/O |
+| Debug Interface | CMSIS-DAP-S via USB Type-C |
+| Display Connector | SPI/GPIO |
+| Firmware Format | `.hex` |
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- USB Type-C cable
+- Terminal emulator software (e.g., PuTTY, Tera Term, minicom)
+- Serial port settings: 115200 baud, 8N1
+
+### Quick Start
+
+1. **Connect the Board**
+   
+   Connect the Prime-S73P to your computer using the USB Type-C connector.
+
+2. **Verify Device Enumeration**
+   
+   Three USB devices should appear in your system:
+   
+   - **CMSIS-DAP-S** - Microcontroller debugger interface
+   - **COM Port 1** - F1C200S UART console
+   - **COM Port 2** - GD32F303 UART debug output
+
+   ![COM Port Detection](https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/Com67.png)
+
+3. **Access the Linux Console**
+   
+   Open COM Port 1 in your terminal emulator (115200 8N1). When a uSD drive containing a Linux image is inserted, you will see boot messages and a login prompt.
+   
+   **Default credentials (Debian 12):**
+   - Username: `root`
+   - Password: `root`
+   
+   For instructions on building a custom Linux image, refer to the documentation in the `Doc` folder.
+
+4. **Monitor Microcontroller Output**
+   
+   Open COM Port 2 to view real-time diagnostic output from the GD32F303. The test firmware reports:
+   - Cyclic DAC-B voltage values
+   - Digitized readings from the ADS1120 ADC
+   - Data from the two FPGA-connected ADC121 converters
+
+### LED Indicators
+
+During operation:
+- **Blue and Red LEDs** - Blink according to user-defined logic
+- **Green LED** - Indicates FPGA register access (external ADC121 readout)
+
+---
+
+## Development Resources
+
+### Microcontroller Firmware
+
+Test firmware is available for two development environments:
+
+- **IAR Embedded Workbench:** [GD32F303CC_IAR](https://github.com/SymTrioS/GD32F303CC_IAR)
+- **Visual Studio Code:** [GD32F303CC_VSC](https://github.com/SymTrioS/GD32F303CC_VSC)
+
+![Development Environments](https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/Prime-S73P_IAR_VSC.png)
+
+### FPGA Development
+
+The FPGA test project for Gowin IDE is available at:
+
+[GW1NR-LV9](https://github.com/SymTrioS/GW1NR-LV9)
+
+![Gowin IDE](https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/Gowin.png)
+
+### Prebuilt Binaries
+
+Ready-to-use binaries are located in the `Bin` directory:
+- **GD32F303 firmware** - `.hex` format
+- **FPGA configuration** - `.fs` format
+
+---
+
+## Factory Configuration
+
+The board ships with preloaded test firmware and FPGA configuration. All factory binaries are available in the `Bin` directory for restoration or reference.
+
+---
+
+## Display Configuration
+
+### LCD Panel Connection
+
+The board supports LCD panels with a 40-pin FFC (flat flex cable) connector. Compatible display sizes include:
+
+- 4.3-inch displays (480×272 or 800×480 pixels)
+- 5.0-inch displays (800×480 pixels)
+- 7.0-inch displays (800×480 pixels)
+
+**Touchscreen support:**
+- Resistive touchscreens: Supported
+- Capacitive touchscreens: Not supported
+
+![LCD 40-Pin Connector](https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/LCD_40pin.jpg)
+
+### Resolution Configuration
+
+To configure the display resolution for 480×272 panels:
+
+1. Navigate to the device tree file:
+   ```
+   linux-5.2-fps/arch/arm/boot/dts/suniv-f1c200s-prime-s.dts
+   ```
+
+2. Modify the display timing configuration:
+   - Comment out line 31 (800×480 configuration)
+   - Uncomment line 29 (480×272 configuration)
+
+3. Rebuild the kernel with the updated device tree
+
+### SPI Display Support
+
+The GD32F303 microcontroller includes a dedicated SPI/GPIO connector for external displays. Example configurations are shown below:
+
 <p align="center">
-<img src="https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/Prime-S73P_01.jpg" width="60%"></p>
-<h3 align="center">The Prime controller integrates three computing units:</h3>
+<img src="https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/LCD_SPI.png" width="50%">
+</p>
 
-- a user interface processor with a Linux OS and standard I/O devices;
+---
 
-- a hardware-specific data processing unit based on programmable logic;
+## Additional Resources
 
-- a microcontroller-based analog and digital signal processing unit.
-  
-<h4 align="center">To facilitate the development and debugging of controller software, the board includes a microcontroller programmer and debugger, a dual-channel USB-to-UART converter, and an interface for configuring programmable logic.</h4>
-  
-<h4 align="center">Built-in programming, debugging, and monitoring functions are accessible via a USB Type-C connector.</h4>
+- **Documentation:** See the `Doc` folder for detailed hardware specifications and Linux build instructions
+- **Schematics:** Available in the repository for reference
+- **Community Support:** Open an issue on GitHub for technical questions or bug reports
 
-<h2 align="center">Functional diagram</h2>
-<p align="center">
-<img src="https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/Prime-S73P_Func.jpg" width="100%"></p>
+---
 
-<h2 align="center">Controller Components</h2>
+## License
 
-**F1C200S Microprocessor**
-* ARM9 architecture, 408 MHz, 64 MB RAM;
-* Support H.264 BP/MP/HP up to 1280x720@30fps decoding, support NTSC/PAL CVBS Input;
-* USB-A HOST, UART, SPI, I2C, GPIO interfaces are available on the connectors of the board;
-* Connectors for connecting an LCD display and a camera (up to 5Mega pixel) are also located on the board.
+Please refer to the repository license file for terms of use.
 
+---
 
-**FPGA Gowin GW1NR-LV9QN88P**
-* 8640 LUT, 6480 Flip-Flop;
-* FLASH capacity of 608 Kbit, RAM capacity is 468 Kbit;
-* There is also additional RAM inside the chip: 64 Mbit PSRAM (4Mx16 bit);
-* HDMI, GPIO interfaces, as well as arbitrary user interfaces specified by the FPGA configuration are available on the board connectors;
-* The uSD connector of the memory card is connected to the chip, which can be connected via internal circuits to the F1C200S microprocessor;
-* External components connected to the chip: 32 Mbit FLASH memory W25Q32, two 12-bit ADCs ADC121 and an ESP-03 Wi-Fi module.
-
-
-**GD32F303CCT6 Microcontroller**
-* Arm® Cortex®-M4 architecture, 120 MHz;
-* 256 KB FLASH memory, 48 KB of SRAM;
-* Analog I/O and UART, SPI, I2C, CAN, and GPIO interfaces are available on the board connectors;
-* 2x12-bit DAC/2x12-bit ADC + 3x12-bit ADC analog channels available;
-* Two external memory chips are connected to the microcontroller: SPI-FLASH W25Q64 (8 MB) and I2C-EEPROM M24C64(8 KB);
-* An external 16-bit 4-channel ADS1120 ADC and two 12-bit DAC7311 DACs are connected via the SPI interface;
-* There is an SPI/GPIO connector on the board, which can be used to connect an SPI display.
-
-<h2 align="center">Getting started</h2>
-
-1. Connect the board (USB Type-C connector) with a cable to the computer.
-
-2. Three devices should appear in the computer system:
-* microcontroller debugger CMSIS-DAP-S and
-* two COM ports (USB-UART converters):
-    - the first converter is connected to the UART console of the F1C200S processor via the internal FPGA configuration, as well as the jumpers installed on the board. At the same time, if a USB memory card with a Linux image is installed, then in the terminal window (115200.8,N) you can see information about the boot the operating system, followed by an invitation to enter your username and password (in the case of the Debian12: root/root assembly included in the 'uSD' directory), to prepare your system build, use the instructions in the folder 'Doc' 
-    - the second converter is connected to the microcontroller's UART to output information generated by its control program. In the case of the test program, these are: the values of the cyclically variable voltage DAC-B, the values of the digitized voltage using the ADS1120 input connected by a jumper, and the values obtained from two ADC121 connected to the FPGA
-
-<p align="center">
-<img src="https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/Com67.png" width="100%"></p>
-
-3. The test program is available in two IDE versions:  
-   * IAR: https://github.com/SymTrioS/GD32F303CC_IAR  
-   * VSC: https://github.com/SymTrioS/GD32F303CC_VSC  
-
-<p align="center">
-<img src="https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/Prime-S73P_IAR_VSC.png" width="100%"></p>
-
-4. The FPGA configuration is set by a test case for the Gowin development environment: https://github.com/SymTrioS/GW1NR-LV9
-
-<p align="center">
-<img src="https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/Gowin.png" width="60%"></p>
-
-5. If necessary, you can use the already prepared files located in the 'Bin' directory: hex-file for the firmware of the GD32F303 microcontroller and fs-file for FPGA configuration.
-
-6. These files are already embedded in the microcontroller and FPGA, as they are used for testing.
-
-7. When the board is running, you can observe the flashing of custom blue and red LEDs, as well as the green glow when the program accesses the FPGA registers - the readings of two external ADC121.
-
-LCD displays with a 40-pin flat cable can be connected to the board. These are typically 4.3, 5.0, or 7.0-inch displays with a resolution of 480x272 or 800x480 pixels. The display can be equipped with a resistive touchscreen. The board does not have a dedicated connector for a capacitive touchscreen.
-
-<p align="center">
-<img src="https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/LCD_40pin.jpg" width="100%"></p>
-
-For a resolution of 480x272, you need to edit the linux-5.2-fps/arch/arm/boot/dts/suniv-f1c200s-prime-s.dts file: comment out line 31 and uncomment line 29.
-
-Example of displays connected to the microcontroller GD32F303 via the SPI interface:
-
-<p align="center">
-<img src="https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/LCD_SPI.png" width="50%"></p>
-
+**Note:** This board is designed for development and prototyping. Ensure proper thermal management and power supply specifications are met for your specific application requirements.
