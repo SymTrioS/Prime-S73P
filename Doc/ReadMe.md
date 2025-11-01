@@ -8,6 +8,8 @@
 
 - Prime-S73P_Dim.pdf - board dimensions, connector locations, and pin numbering;
 
+- Box_G1910.pdf      - Type and dimensions of a small-sized enclosure suitable for the Prime-S73P board.
+
 <h2 align="center">Linux system build procedure</h2>
 
 **Package installation**  
