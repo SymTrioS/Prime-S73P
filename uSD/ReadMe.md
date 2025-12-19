@@ -26,17 +26,15 @@ Prime-S73P/uSD$ sudo umount /dev/sdx1
 
 *Get https://disk.yandex.ru/d/VCLHKDqusnvv8A/debian12.rootfsf.tar rootFS in uSD folder or use another build*
 
-*Get https://disk.yandex.ru/d/VCLHKDqusnvv8A/linux-5.2-fps.zip Linux drivers library and unzip in uSD folder*
-
 *Write RootFS debian12:*
 
 Prime-S73P/uSD$ sudo mount /dev/sdx2 /mnt  
 Prime-S73P/uSD$ sudo tar -C /mnt/ -xf debian12.rootfsf.tar  
 Prime-S73P/uSD$ sync  
-Prime-S73P/uSD$ sudo mkdir -p /mnt/usr/lib/modules  
-Prime-S73P/uSD$ sudo rm -rf /mnt/usr/lib/modules/  
+
+*Get https://disk.yandex.ru/d/VCLHKDqusnvv8A/linux-5.2-fps.zip Linux drivers library and unzip in uSD folder*
+
 Prime-S73P/uSD$ cd linux-5.2-fps  
 Prime-S73P/uSD/linux-5.2-fps$ sudo cp -r out/lib /mnt/usr/  
 Prime-S73P/uSD/linux-5.2-fps$ sync  
 Prime-S73P/uSD/linux-5.2-fps$ sudo umount /dev/sdx2  
-
