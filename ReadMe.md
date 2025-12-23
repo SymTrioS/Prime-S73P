@@ -133,11 +133,15 @@ The board includes integrated development tools accessible via a single USB Type
 
 ### Quick Start
 
-1. **Connect the Board**
+1. **Linux image**
+   
+   The pre-prepared Linux files and instructions for writing them to the uSD card are located in the **uSD** directory.  Instructions for building your own version of the Linux system image are located in the **Doc** directory.
+
+2. **Connect the Board**
    
    Connect the Prime-S73P to your computer using the USB Type-C connector.
 
-2. **Verify Device Enumeration**
+3. **Verify Device Enumeration**
    
    Three USB devices should appear in your system:
    
@@ -147,7 +151,7 @@ The board includes integrated development tools accessible via a single USB Type
 
    ![COM Port Detection](https://github.com/SymTrioS/Prime-S73P/blob/main/Jpg/Com67.png)
 
-3. **Access the Linux Console**
+4. **Access the Linux Console**
    
    Open COM Port 1 in your terminal emulator (115200 8N1). When a uSD drive containing a Linux image is inserted, you will see boot messages and a login prompt.
    
@@ -157,7 +161,7 @@ The board includes integrated development tools accessible via a single USB Type
    
    For instructions on building a custom Linux image, refer to the documentation in the `Doc` folder.
 
-4. **Monitor Microcontroller Output**
+5. **Monitor Microcontroller Output**
    
    Open COM Port 2 to view real-time diagnostic output from the GD32F303. The test firmware reports:
    - Cyclic DAC-B voltage values
