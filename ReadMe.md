@@ -48,7 +48,7 @@ The board includes integrated development tools accessible via a single USB Type
 - Logic resources: 8,640 LUTs, 6,480 flip-flops
 - On-chip memory: 468 Kbit RAM, 608 Kbit Flash
 - External PSRAM: 64 Mbit (4M × 16-bit)
-- External Flash: 32 Mbit W25Q32
+- External Flash: 16 Mbit P25Q16
 - Analog front-end: Two 12-bit ADC121 converters
 - Wireless connectivity: ESP-03 Wi-Fi module
 - Interfaces: HDMI output, GPIO, user-configurable I/O
@@ -93,7 +93,7 @@ The board includes integrated development tools accessible via a single USB Type
 | Logic Elements | 8,640 LUTs, 6,480 flip-flops |
 | Embedded Memory | 468 Kbit RAM, 608 Kbit Flash |
 | Internal Memory | 64 Mbit PSRAM (4M × 16-bit) |
-| External Flash | 32 Mbit W25Q32 |
+| External Flash | 16 Mbit P25Q16 |
 | Analog Inputs | Two 12-bit ADC121 converters |
 | Wireless Module | ESP-03 Wi-Fi |
 | Video Output | HDMI |
