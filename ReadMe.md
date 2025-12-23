@@ -47,7 +47,7 @@ The board includes integrated development tools accessible via a single USB Type
 #### **Gowin GW1NR-LV9QN88P FPGA**
 - Logic resources: 8,640 LUTs, 6,480 flip-flops
 - On-chip memory: 468 Kbit RAM, 608 Kbit Flash
-- External PSRAM: 64 Mbit (4M × 16-bit)
+- Internal PSRAM: 64 Mbit (4M × 16-bit)
 - External Flash: 16 Mbit P25Q16
 - Analog front-end: Two 12-bit ADC121 converters
 - Wireless connectivity: ESP-03 Wi-Fi module
